@@ -1,43 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:valenciaexam/pagina_inicial.dart';
+import 'package:valenciaexam/pagina_animatedIcon.dart';
+import 'package:valenciaexam/pagina_clipPath.dart';
+import 'package:valenciaexam/pagina_heroAnimation.dart';
+import 'package:valenciaexam/pagina_rangeSlider.dart';
+import 'package:valenciaexam/pagina_refreshIndicator.dart';
+import 'package:valenciaexam/pagina_fractionallySizedbox.dart';
+import 'pagina_valueNotifier.dart';
+import 'package:valenciaexam/pagina_listener.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MisWidgets());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MisWidgets extends StatelessWidget {
+  const MisWidgets({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Entre paginas Routes',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const PantallaInicial(),
+        '/animatedicon': (context) => const AnimatedIconExam(),
+        '/clippath': (context) => const ClipPathExam(),
+        '/heroanimation': (context) => const HeroAnimationExam(),
+        '/rangeslider': (context) => const RangeSliderExam(),
+        '/refreshindicator': (context) => const RefreshIndicatorExam(),
+        '/fractionallysizedBox': (context) => const FractionallySizedBoxExam(),
+        '/valuenotifier': (context) => const ValueNotifierExam(),
+        '/listener': (context) => const ListenerExam(),
+      },
     );
   }
 }
